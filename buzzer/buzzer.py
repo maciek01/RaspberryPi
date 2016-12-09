@@ -1,8 +1,14 @@
 #!/usr/bin/python
 
-import os
-import time
+import time, datetime as dt
 import RPi.GPIO as GPIO
+
+
+HOURS = 10
+MINUTES = 30
+
+#HOURS = 0
+#MINUTES = 23
 
 BZPIN = 11 #gpio 0
 
@@ -25,6 +31,19 @@ def beep(secs, period):
 		time.sleep(period)
 
 
-for i in range(0, 1):
-	beep(1, 0.00005)
-	time.sleep(1)
+
+
+def alarm(secs):
+	for i in range(0, secs * 2):
+		beep(0.3, 0.00005)
+		time.sleep(0.2)
+
+
+
+
+while True:
+	if dt.datetime.today().hour == HOURS and dt.datetime.today().minute == MINUTES:
+		alarm(60)
+
+
+
