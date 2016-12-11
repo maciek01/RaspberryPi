@@ -41,9 +41,3 @@ def alarm(secs):
 
 
 
-while True:
-	if dt.datetime.today().hour == HOURS and dt.datetime.today().minute == MINUTES:
-		alarm(60)
-
-
-
